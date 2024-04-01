@@ -6,6 +6,8 @@ if __name__ == "__main__":
     test = pd.read_excel("new_complex_nonlinear_data.xlsx")
     x_train = train["x"].to_numpy()
     y_train = train["y_complex"].to_numpy()
+    # plt.scatter(x_train,y_train)
+    # plt.show()
     x_test = test["x_new"].to_numpy()
     y_test = test["y_new_complex"].to_numpy()
     a = np.polyfit(x_train,y_train,20)
