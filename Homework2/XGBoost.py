@@ -26,11 +26,11 @@ def make_moons_3d(n_samples=500, noise=0.1):
 
 # Generate the data (1000 datapoints)
 X, labels = make_moons_3d(n_samples=1000, noise=0.2)
-X_train, X_test, Y_train, Y_test = train_test_split(X, labels, test_size=0.5, random_state=42)
+X_test, labels_test = make_moons_3d(n_samples=500, noise=0.3)
 model = xgb.XGBClassifier(use_label_encoder=False, eval_metric='logloss')
-model.fit(X_train, Y_train)
+model.fit(X, labels)
 Y_pred = model.predict(X_test)
-accuracy = accuracy_score(Y_test, Y_pred)
+accuracy = accuracy_score(labels_test, Y_pred)
 print("Accuracy: {}".format(accuracy))
 # Plotting
 fig = plt.figure()
